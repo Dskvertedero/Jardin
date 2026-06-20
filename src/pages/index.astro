@@ -2,8 +2,10 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Grafo from "../components/Grafo.astro";
+import { notasPublicadas } from "../lib/draft";
 
-const notas = await getCollection("garden");
+const todasLasNotas = await getCollection("garden");
+const notas = notasPublicadas(todasLasNotas);
 const recientes = notas.slice(0, 5);
 ---
 <BaseLayout title="Mi Jardín Digital">

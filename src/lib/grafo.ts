@@ -1,6 +1,8 @@
 import GithubSlugger from "github-slugger";
+import { notasPublicadas } from "./draft";
 
-export function getGraphData(notas: any[]) {
+export function getGraphData(notasOriginal: any[]) {
+  const notas = notasPublicadas(notasOriginal);
   const slugger = new GithubSlugger();
   const idsValidos = new Set(notas.map((n) => n.id));
 

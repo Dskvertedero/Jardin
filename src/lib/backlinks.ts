@@ -1,6 +1,8 @@
 import GithubSlugger from "github-slugger";
+import { notasPublicadas } from "./draft";
 
-export function getBacklinksMap(notas: any[]) {
+export function getBacklinksMap(notasOriginal: any[]) {
+  const notas = notasPublicadas(notasOriginal);
   const map = new Map<string, Set<string>>();
   const slugger = new GithubSlugger();
 
