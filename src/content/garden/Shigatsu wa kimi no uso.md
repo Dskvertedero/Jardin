@@ -1,20 +1,23 @@
+---
+draft: "true"
+---
 
-Y este anime inagurara la seccion de reseñas.
+Y este anime inaugurará la sección de reseñas.
 
-¿Porque esta ? Es simple por el valor sentimental que el tengo a la obra asi de sencillo, aun si bien la decision es algo sumamente sentimental algo que no tengo duda es la calidad de la misma, personalmente lo sigo considerando como un anime de alto impacto, que no ha menguado  y sigue bastante vigente a pesar de su estreno desde el 2014 ya 12 años, que se dice rapido pero ya es algo. 
+¿Por qué esta obra? Es simple: por el valor sentimental que le tengo, así de sencillo. Aunque la decisión es algo sumamente sentimental, algo de lo que no tengo duda es de la calidad de la misma. Personalmente, lo sigo considerando como un anime de alto impacto, que no ha menguado y sigue bastante vigente a pesar de su estreno en 2014. Ya han pasado 12 años, que se dice rápido, pero ya es algo.
 
+Entrando un poco más en el anime. La historia sigue a Arima Kousei, destacado pianista infantil catalogado como un prodigio en su rama. Por cierto, el tema de los niños prodigio es un tema bastante controvertido, ya que siempre desata la polémica relacionada con el talento y con el esfuerzo, entre otros temas de lo más interesantes, pero será un tema que retomaré aparte en otra nota.
 
-Entrando un poco mas en el anime. La historia sigue a arima Kousei, destacado pianista infantil catalogado como un pordigio en su rama.  Por cierto el tema de los niños prodigios es un tema bastante coontrovertido, ya que siempre desata la polemica relacionado con el talento y con el esfuerzo entre otras temas de lo mas interesantes,  pero sera un tema que retomare a parte en otra nota. Regresando la obra Arima un joven que esta profundamente herido y traumado por la perdida de su madre que tambien fue su instructora, este trauma lo orilla a dejar la musica y.... un mundo sumamente deprimido del cual que se siente aislado del mismo a pesar que tiene gente alredeor de el . creo que estoy describiendo un poco de mi vida aqui hmm..
+Regresando a la obra, Arima es un joven que está profundamente herido y traumado por la pérdida de su madre, que también fue su instructora. Este trauma lo orilla a dejar la música y a vivir en un mundo sumamente deprimido, del cual se siente aislado a pesar de que tiene gente alrededor de él. Creo que estoy describiendo un poco de mi vida aquí... hmm...
 
-Pero todo esta cascara de depresion y amargura es  interrumpida por Kaori, su rubia de ojos azules. viva el amor.
+Pero toda esta cáscara de depresión y amargura es interrumpida por Kaori, su rubia de ojos azules. Viva el amor.
 
-La obra no es que revolucione el genero de romance, si no has visto la obra de lo que he escrito debe parecer generico hasta ahora porque si, lo que sigue ahora es como kaori con su enorme espiritu y esperanza poco a poco contagia el espiritu roto de nuestro protagonista y como tambine su corazon.
+La obra no es que revolucione el género de romance. Si no has visto la obra, por lo que he escrito debe parecer genérica hasta ahora, porque sí. Lo que sigue ahora es cómo Kaori, con su enorme espíritu y esperanza, poco a poco contagia el espíritu roto de nuestro protagonista y también su corazón.
 
+Entonces la pregunta es: ¿por qué destaca tanto? En palabras sencillas, por su manera de contar la historia.
 
-Entonces la pregunta es ¿porque destaca tanto? palabras sencillas, por su manera de contar la historia.
+La obra no es puramente diálogos y diálogos, que no son malos para nada. Las conversaciones entre personajes no son huecas y constantemente están reflexionando sobre lo que sucede. Pero no solo es eso, también busca transmitir los sentimientos con otros elementos; quiere atravesar lo que no se puede transmitir con palabras. Hacen un espectacular uso de los colores y, sobre todo, pero sobre todo, del uso de la música.
 
-La obra no es puramente dialogos y dialogos que no son malos para nada, las conversaciones entre personajes no son huecas y constante estan reflexionando lo que sucede, pero no solo es  eso tmabien busca transmitir los sentimientos con otros elementos, quiere travesar lo que no se puede transmitir con palabras, hacen un espectacular uso de los colores  y sobretod pero sobretodo el uso de la musica, vamos el anime se desarrolla en el mundo de la musica clasica, por supuesto  que las piezas que utilizan estan finamente seleccionados, no solo represwetan bien  la sitauacino emocinoal de la obra y de los personajes, pero no solo se queda ahi, la bamnda sonora, las composiciones de acmopañamiento de las situaciones, tambein estan realmente bien estructurada.
+Vamos, el anime se desarrolla en el mundo de la música clásica; por supuesto que las piezas que utilizan están finamente seleccionadas. No solo representan bien la situación emocional de la obra y de los personajes, sino que no se queda ahí. La banda sonora y las composiciones de acompañamiento para las distintas situaciones también están realmente bien estructuradas.
 
-
-Superacion 
-
+Superación.
