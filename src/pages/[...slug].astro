@@ -27,10 +27,13 @@ const fecha = stats.birthtime.toLocaleDateString("es-MX", {
 const backlinksMap = getBacklinksMap(todasLasNotas);
 const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
+
+const tituloNota = nota.data.title || nota.id;
+const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 ---
-<BaseLayout title={nota.data.title || nota.id}>
+<BaseLayout title={tituloNota}>
   <a href="/garden">&larr; Volver al jardín</a>
-  <h1>{nota.data.title || nota.id}</h1>
+  <h1>{tituloNota}</h1>
   <p class="nota-fecha">{fecha}</p>
   <article class="prose">
     <Content />
@@ -46,4 +49,17 @@ const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
       </ul>
     </section>
   )}
+
+  <section class="comentarios">
+    <h3>Comentarios</h3>
+    <div
+      id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="183e20bf-2c00-483a-915d-b403e6c34176"
+      data-page-id={nota.id}
+      data-page-url={urlNota}
+      data-page-title={tituloNota}
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </section>
 </BaseLayout>
