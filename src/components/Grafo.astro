@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import { getGraphData } from "../lib/grafo";
+
+const notas = await getCollection("garden");
+const graphData = getGraphData(notas);
+---
+<section class="grafo-section">
+  <h2 class="categoria-titulo">Grafo de conexiones</h2>
+  <div id="grafo-container" class="grafo-container"></div>
+</section>
+
+<script type="application/json" id="grafo-data" set:html={JSON.stringify(graphData)}></script>
+
+<script>
+  import ForceGraph from "force-graph";
+
+  const dataEl = document.getElementById("grafo-data");
+  const container = document.getElementById("grafo-container");
+
+  if (dataEl && container) {
+    const data = JSON.parse(dataEl.textContent || "{}");
+
+    ForceGraph()(container)
+      .graphData(data)
+      .nodeLabel("label")
+      .nodeColor(() => "#BB6C43")
+      .linkColor(() => "#CCB499")
+      .backgroundColor("transparent")
+      .onNodeClick((node) => {
+        window.location.href = `/${node.id}`;
+      })
+      .height(400);
+  }
+</script>

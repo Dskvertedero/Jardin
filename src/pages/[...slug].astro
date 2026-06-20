@@ -1,0 +1,49 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getBacklinksMap } from "../lib/backlinks";
+
+export async function getStaticPaths() {
+  const notas = await getCollection("garden");
+  return notas.map((nota) => ({
+    params: { slug: nota.id },
+    props: { nota, todasLasNotas: notas },
+  }));
+}
+
+const { nota, todasLasNotas } = Astro.props;
+const { Content } = await render(nota);
+
+const absolutePath = path.join(process.cwd(), nota.filePath);
+const stats = fs.statSync(absolutePath);
+const fecha = stats.birthtime.toLocaleDateString("es-MX", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const backlinksMap = getBacklinksMap(todasLasNotas);
+const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
+const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
+---
+<BaseLayout title={nota.data.title || nota.id}>
+  <a href="/garden">&larr; Volver al jardín</a>
+  <h1>{nota.data.title || nota.id}</h1>
+  <p class="nota-fecha">{fecha}</p>
+  <article class="prose">
+    <Content />
+  </article>
+
+  {backlinkNotas.length > 0 && (
+    <section class="backlinks">
+      <h3>Mencionado en</h3>
+      <ul>
+        {backlinkNotas.map((n) => (
+          <li><a href={`/${n.id}`}>{n.data.title || n.id}</a></li>
+        ))}
+      </ul>
+    </section>
+  )}
+</BaseLayout>

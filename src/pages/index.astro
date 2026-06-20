@@ -1,11 +1,30 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Grafo from "../components/Grafo.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const notas = await getCollection("garden");
+const recientes = notas.slice(0, 5);
 ---
+<BaseLayout title="Mi Jardín Digital">
+  <section class="intro">
+    <h1>Holap, es bueno verte por aca </h1>
+    <p>
+      Es increible las cosas que puede hacer uno cuando anda aburrido, eso y cuando trata de no pensar mucho, este espacio simplemente sere yo vertiendo las cositas que me llamen la atencion  y algo más 
+    </p>
+  </section>
 
-<Layout>
-	<Welcome />
-</Layout>
+  <section class="recent-notes">
+    <h2>Notas recientes</h2>
+    <ul>
+      {recientes.map((nota) => (
+        <li>
+          <a href={`/${nota.id}`}>{nota.data.title || nota.id}</a>
+        </li>
+      ))}
+    </ul>
+    <a href="/garden" class="see-all">Ver todas las notas &rarr;</a>
+  </section>
+
+  <Grafo />
+</BaseLayout>

@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.4.7"
+    "@astrojs/mdx": "^6.0.3",
+    "astro": "^6.4.7",
+    "force-graph": "^1.51.4",
+    "github-slugger": "^2.0.0",
+    "remark-obsidian-md": "^1.1.0"
   }
 }

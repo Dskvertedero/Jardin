@@ -1,0 +1,73 @@
+OAOO---
+Bimport fs from "node:fs";
+import path from "node:path";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getExcerpt } from "../../lib/excerpt";
+import { agruparPorCategoria } from "../../lib/categorias";
+
+const notas = await getCollection("garden");
+const grupos = agruparPorCategoria(notas);
+
+function getFechaCreacion(filePath: string) {
+  const absolutePath = path.join(process.cwd(), filePath);
+  const stats = fs.statSync(absolutePath);
+  return stats.birthtime.toLocaleDateString("es-MX", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+<BaseLayout title="Mi Jardín Digital">
+  <h1>Mi Jardín Digital</h1>
+  <p class="garden-intro">Una colección de notas en crecimiento.</p>
+
+  <input
+    type="text"
+    id="buscador"
+    class="buscador-input"
+    placeholder="Buscar notas..."
+  />
+
+  {Array.from(grupos.entries()).map(([categoria, notasDeCategoria]) => (
+    <section class="categoria-section" data-categoria-section>
+      <h2 class="categoria-titulo">{categoria}</h2>
+      <div class="garden-grid">
+        {notasDeCategoria.map((nota) => (
+          
+            href={`/${nota.id}`}
+            class="garden-card"
+            data-titulo={(nota.data.title || path.basename(nota.id)).toLowerCase()}
+          >
+            <h3>{nota.data.title || path.basename(nota.id)}</h3>
+            <p class="garden-excerpt">{getExcerpt(nota.body)}</p>
+            <span class="garden-date">{getFechaCreacion(nota.filePath)}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <script>
+    const input = document.getElementById("buscador");
+    const tarjetas = document.querySelectorAll<HTMLElement>(".garden-card");
+    const secciones = document.querySelectorAll<HTMLElement>("[data-categoria-section]");
+
+    input?.addEventListener("input", (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase().trim();
+
+      tarjetas.forEach((tarjeta) => {
+        const titulo = tarjeta.dataset.titulo || "";
+        tarjeta.style.display = titulo.includes(query) ? "" : "none";
+      });
+
+      secciones.forEach((seccion) => {
+        const visibles = seccion.querySelectorAll(
+          '.garden-card:not([style*="display: none"])'
+        );
+        (seccion as HTMLElement).style.display = visibles.length > 0 ? "" : "none";
+      });
+    });
+  </script>
+</BaseLayout>
