@@ -324,3 +324,24 @@ main {
   margin-bottom: 1rem;
   opacity: 0.8;
 }
+
+.error-404 {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.error-404 h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.error-404 p {
+  opacity: 0.8;
+  max-width: 50ch;
+  margin: 0 auto 2rem auto;
+}
+
+.error-404 .see-all {
+  display: inline-block;
+  margin: 0 0.75rem;
+}
