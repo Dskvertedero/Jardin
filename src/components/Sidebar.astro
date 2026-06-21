@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import { agruparPorCarpeta, slugifyCategoria } from "../lib/categorias";
+import { notasPublicadas } from "../lib/draft";
+
+const { categoriaActiva } = Astro.props;
+
+const todasLasNotas = await getCollection("garden");
+const notas = notasPublicadas(todasLasNotas);
+const grupos = agruparPorCarpeta(notas);
+---
+<div id="garden-sidebar" class="garden-sidebar garden-sidebar-colapsado">
+  <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Desplegar menú">
+    <span class="sidebar-toggle-label">Categorías</span>
+    <span id="sidebar-icono">☰</span>
+  </button>
+  <nav id="sidebar-nav" class="sidebar-nav">
+    <a href="/garden" class={`sidebar-link ${!categoriaActiva ? "sidebar-link-activo" : ""}`}>
+      Todas las notas
+    </a>
+    {Array.from(grupos.keys()).map((carpeta) => (
+      <a href={`/garden/${slugifyCategoria(carpeta)}`} class={`sidebar-link ${categoriaActiva === carpeta ? "sidebar-link-activo" : ""}`}>
+        {carpeta}
+      </a>
+    ))}
+  </nav>
+</div>
+
+<script>
+  const wrapper = document.getElementById("garden-sidebar");
+  const toggle = document.getElementById("sidebar-toggle");
+
+  toggle?.addEventListener("click", () => {
+    wrapper?.classList.toggle("garden-sidebar-colapsado");
+  });
+</script>

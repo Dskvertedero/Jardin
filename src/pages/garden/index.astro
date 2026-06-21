@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { getCollection } from "astro:content";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import GardenLayout from "../../layouts/GardenLayout.astro";
 import { getExcerpt, getContenidoCompleto } from "../../lib/excerpt";
 import { agruparPorCategoria } from "../../lib/categorias";
 import { notasPublicadas } from "../../lib/draft";
@@ -22,7 +22,7 @@ function getFechaCreacion(filePath: string) {
   });
 }
 ---
-<BaseLayout title="Mi Jardín Digital">
+<GardenLayout title="Mi Jardín Digital">
   <h1>Mi Jardín Digital</h1>
   <p class="garden-intro">Una colección de notas en crecimiento.</p>
 
@@ -52,7 +52,7 @@ function getFechaCreacion(filePath: string) {
   </div>
 
   <Grafo />
-</BaseLayout>
+</GardenLayout>
 
 <script>
   const input = document.getElementById("buscador");

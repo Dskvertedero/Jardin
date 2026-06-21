@@ -1,0 +1,14 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+const { title = "Mi Jardín Digital", categoriaActiva } = Astro.props;
+---
+<BaseLayout title={title}>
+  <div class="garden-layout">
+    <Sidebar categoriaActiva={categoriaActiva} />
+    <div class="garden-main">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>
