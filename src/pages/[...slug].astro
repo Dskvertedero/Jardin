@@ -5,6 +5,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getBacklinksMap } from "../lib/backlinks";
 import { notasPublicadas } from "../lib/draft";
+import { formatearTitulo } from "../lib/titulo";
 
 export async function getStaticPaths() {
   const todasLasNotas = await getCollection("garden");
@@ -30,7 +31,7 @@ const backlinksMap = getBacklinksMap(todasLasNotas);
 const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
 
-const tituloNota = nota.data.title || path.basename(nota.id);
+const tituloNota = nota.data.title || formatearTitulo(path.basename(nota.id));
 const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 ---
 <BaseLayout title={tituloNota}>
@@ -46,7 +47,7 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
       <h3>Mencionado en</h3>
       <ul>
         {backlinkNotas.map((n) => (
-          <li><a href={`/${n.id}`}>{n.data.title || n.id}</a></li>
+          <li><a href={`/${n.id}`}>{n.data.title || formatearTitulo(path.basename(n.id))}</a></li>
         ))}
       </ul>
     </section>

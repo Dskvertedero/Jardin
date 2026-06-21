@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Grafo from "../components/Grafo.astro";
+import { formatearTitulo } from "../lib/titulo";
 import { notasPublicadas } from "../lib/draft";
 
 const todasLasNotas = await getCollection("garden");
@@ -21,7 +22,7 @@ const recientes = notas.slice(0, 5);
     <ul>
       {recientes.map((nota) => (
         <li>
-          <a href={`/${nota.id}`}>{nota.data.title || nota.id}</a>
+          <a href={`/${nota.id}`}>{nota.data.title || formatearTitulo(nota.id)}</a>
         </li>
       ))}
     </ul>

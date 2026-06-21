@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import { agruparPorCarpeta, slugifyCategoria } from "../lib/categorias";
 import { notasPublicadas } from "../lib/draft";
+import { formatearTitulo } from "../lib/titulo";
 
 const { categoriaActiva } = Astro.props;
 
@@ -20,7 +21,7 @@ const grupos = agruparPorCarpeta(notas);
     </a>
     {Array.from(grupos.keys()).map((carpeta) => (
       <a href={`/garden/${slugifyCategoria(carpeta)}`} class={`sidebar-link ${categoriaActiva === carpeta ? "sidebar-link-activo" : ""}`}>
-        {carpeta}
+        {formatearTitulo(carpeta)}
       </a>
     ))}
   </nav>

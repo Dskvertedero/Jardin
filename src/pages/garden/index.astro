@@ -6,6 +6,7 @@ import GardenLayout from "../../layouts/GardenLayout.astro";
 import { getExcerpt, getContenidoCompleto } from "../../lib/excerpt";
 import { agruparPorCategoria } from "../../lib/categorias";
 import { notasPublicadas } from "../../lib/draft";
+import { formatearTitulo } from "../../lib/titulo";
 import Grafo from "../../components/Grafo.astro";
 
 const todasLasNotas = await getCollection("garden");
@@ -41,7 +42,7 @@ function getFechaCreacion(filePath: string) {
         <div class="garden-grid">
           {notasDeCategoria.map((nota) => (
             <a href={`/${nota.id}`} class="garden-card" data-titulo={(nota.data.title || path.basename(nota.id)).toLowerCase()} data-contenido={getContenidoCompleto(nota.body)}>
-              <h3>{nota.data.title || path.basename(nota.id)}</h3>
+              <h3>{nota.data.title || formatearTitulo(path.basename(nota.id))}</h3>
               <p class="garden-excerpt">{getExcerpt(nota.body)}</p>
               <span class="garden-date">{getFechaCreacion(nota.filePath)}</span>
             </a>
