@@ -1,3 +1,6 @@
+---
+categoria: Libro
+---
 
 Hola camaradas, un gusto verlos aquí. Camarada lector, déjame contarte sobre este libro.
 
