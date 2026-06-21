@@ -1,7 +1,7 @@
 ---
 draft: false
 ---
-
+<audio src="/media/shigatsu.mp3" controls></audio>
 Y este anime inaugurará la sección de reseñas. Que divertido
 ![Esta bonita](/media/shigatsu.jpg)
 
