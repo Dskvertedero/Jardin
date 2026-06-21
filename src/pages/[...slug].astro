@@ -69,11 +69,13 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 
 <script>
   const contenido = document.querySelector(".prose");
-  const etiquetasDeContenido = ["P", "H1", "H2", "H3", "H4", "H5", "H6", "UL", "OL", "BLOCKQUOTE", "PRE", "TABLE", "IMG", "VIDEO", "AUDIO", "FIGURE"];
+  const textosBasura = ["Properties", "▼", "›", "draft", "categoria", "title", "true", "false"];
 
   if (contenido) {
     let nodo = contenido.firstElementChild;
-    while (nodo && !etiquetasDeContenido.includes(nodo.tagName)) {
+    while (nodo) {
+      const texto = (nodo.textContent || "").trim();
+      if (!textosBasura.includes(texto)) break;
       const siguiente = nodo.nextElementSibling;
       nodo.remove();
       nodo = siguiente;
