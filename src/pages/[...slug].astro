@@ -4,9 +4,11 @@ import path from "node:path";
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getBacklinksMap } from "../lib/backlinks";
+import { notasPublicadas } from "../lib/draft";
 
 export async function getStaticPaths() {
-  const notas = await getCollection("garden");
+  const todasLasNotas = await getCollection("garden");
+  const notas = notasPublicadas(todasLasNotas);
   return notas.map((nota) => ({
     params: { slug: nota.id },
     props: { nota, todasLasNotas: notas },

@@ -5,9 +5,11 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getExcerpt, getContenidoCompleto } from "../../lib/excerpt";
 import { agruparPorCategoria } from "../../lib/categorias";
+import { notasPublicadas } from "../../lib/draft";
 import Grafo from "../../components/Grafo.astro";
 
-const notas = await getCollection("garden");
+const todasLasNotas = await getCollection("garden");
+const notas = notasPublicadas(todasLasNotas);
 const grupos = agruparPorCategoria(notas);
 
 function getFechaCreacion(filePath: string) {

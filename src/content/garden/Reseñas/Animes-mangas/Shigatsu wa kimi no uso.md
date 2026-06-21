@@ -1,5 +1,5 @@
 ---
-draft: "true"
+draft: true
 ---
 
 Y este anime inaugurará la sección de reseñas. Que divertodo
