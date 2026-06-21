@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 ---
 
 Y este anime inaugurará la sección de reseñas. Que divertido
@@ -21,7 +21,7 @@ La obra no es puramente diálogos y diálogos, que no son malos para nada. Las c
 
 Vamos, el anime se desarrolla  a través de competencia de música clásica , y no por simplemente tocar se hace mucho hincapié en la siguiente frase "mi música llegara a ellos"; por supuesto que las piezas que utilizan están finamente seleccionadas. Representan bien la situación emocional de la obra y de los personajes. La banda sonora y las composiciones de acompañamiento para las distintas situaciones también están realmente bien estructuradas.
 
-Superación. Cambiando un poco de tema y dejando de lado el romance, superación es la palabra que hace girar entorno al anime. La superación y desarrollo personal es algo que parece estar de moda últimamente y no es algo malo  obvio no, pero muchas veces los discursos de motivación personal se estanca a simplemente cumplir ciertas actividades, como requisitos como si fueran una clase de juego, que si cumples religiosamente con el tiempo suficiente podrás mejorar como persona  y haber no es que estas actividades no influyan positivamente en el estilo y calidad de vida en realidad, pero están lejos de solucionar la raíz de los problemas. En el caso de Kousei a primera instancia parece que realmente no tiene problemas, hasta parece un simple miedo, no hasta que enfrenta el volver a tocar que se aprecia la profundidad del trauma
+Superación. Cambiando un poco de tema y dejando de lado el romance, superación es la palabra que hace girar entorno al anime. La superación y desarrollo personal es algo que parece estar de moda últimamente y no es algo malo  obvio no, pero muchas veces los discursos de motivación personal se estanca a simplemente cumplir ciertas actividades, como requisitos como si fueran una clase de juego, que si cumples religiosamente con el tiempo suficiente podrás mejorar como persona  y haber no es que estas actividades no influyan positivamente en el estilo y calidad de vida en realidad, pero están lejos de solucionar la raíz de los problemas. En el caso de Kousei a primera instancia parece que realmente no tiene problemas visibles mas alla de un torpeza ligera que es algo mas el rasgo de personalidad que otra cosa, un simple miedo, no hasta que enfrenta el miedo de  volver a tocar frente a un publico que se aprecia la profundidad del trauma. Y durante toda la obra se maneja de esta manera, ir directo al problema, enfrentarlo, no solo para Arima, tambien para todos los personajes
 
 Algo que debo dejar claro mientras escribo esto, hace ya un tiempo desde la ultima vez que consumí el anime, así que realmente deben de haber muchos rasgos que estoy dejando de lado por esto.
 

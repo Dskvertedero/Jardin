@@ -30,7 +30,7 @@ const backlinksMap = getBacklinksMap(todasLasNotas);
 const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
 
-const tituloNota = nota.data.title || nota.id;
+const tituloNota = nota.data.title || path.basename(nota.id);
 const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 ---
 <BaseLayout title={tituloNota}>
@@ -65,3 +65,17 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
   </section>
 </BaseLayout>
+
+<script>
+  const contenido = document.querySelector(".prose");
+  const etiquetasDeContenido = ["P", "H1", "H2", "H3", "H4", "H5", "H6", "UL", "OL", "BLOCKQUOTE", "PRE", "TABLE", "IMG", "VIDEO", "AUDIO", "FIGURE"];
+
+  if (contenido) {
+    let nodo = contenido.firstElementChild;
+    while (nodo && !etiquetasDeContenido.includes(nodo.tagName)) {
+      const siguiente = nodo.nextElementSibling;
+      nodo.remove();
+      nodo = siguiente;
+    }
+  }
+</script>
