@@ -1,8 +1,9 @@
 ---
-draft: true
+draft: false
 ---
 
-Y este anime inaugurará la sección de reseñas. Que divertodo
+Y este anime inaugurará la sección de reseñas. Que divertido
+![Esta bonita](/media/shigatsu.jpg)
 
 ¿Por qué esta obra? Es simple: por el valor sentimental que le tengo, así de sencillo. Aunque la decisión es algo sumamente sentimental, algo de lo que no tengo duda es de la calidad de la misma. Personalmente, lo sigo considerando como un anime de alto impacto, que no ha menguado y sigue bastante vigente a pesar de su estreno en 2014. Ya han pasado 12 años, que se dice rápido, pero ya es algo.
 
