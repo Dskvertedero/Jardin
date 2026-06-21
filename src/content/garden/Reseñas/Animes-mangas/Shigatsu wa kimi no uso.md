@@ -1,7 +1,6 @@
 ---
 draft: false
 ---
-<audio src="/media/shigatsu.mp3" controls></audio>
 
 <div class="reproductor-audio"> <audio src="/media/shigatsu.mp3"></audio> <button class="rp-play">▶</button> <div class="rp-barra"><div class="rp-progreso"></div></div> <span class="rp-tiempo">0:00 / 0:00</span> </div>Y este anime inaugurará la sección de reseñas. Que divertido
 ![Esta bonita](/media/shigatsu.jpg)
