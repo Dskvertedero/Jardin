@@ -1,3 +1,7 @@
+---
+draft: false
+---
+
 [[prueba 1]]
 [[Welcome]]
 [[prueba 2]]

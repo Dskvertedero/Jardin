@@ -1,5 +1,5 @@
 ---
-categoria: holap
+draft: false
 ---
 #matematicas 
 [[Welcome]]\\\
