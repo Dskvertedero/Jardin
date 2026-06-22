@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 ---
 This is your new *vault*.
 
