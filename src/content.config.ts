@@ -9,7 +9,8 @@ const garden = defineCollection({
   schema: z.object({
     title: z.string().optional(),
     categoria: z.string().optional(),
-    draft: z.boolean().optional(),
+    draft: z.union([z.boolean(), z.string()]).optional(),
+    descripcion: z.string().optional(),
   }),
 });
 

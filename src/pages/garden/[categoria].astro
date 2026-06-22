@@ -39,7 +39,7 @@ function getFechaCreacion(filePath: string) {
     {notasDeCarpeta.map((nota) => (
       <a href={`/${nota.id}`} class="garden-card" data-titulo={(nota.data.title || path.basename(nota.id)).toLowerCase()} data-contenido={getContenidoCompleto(nota.body)}>
         <h3>{nota.data.title || formatearTitulo(path.basename(nota.id))}</h3>
-        <p class="garden-excerpt">{getExcerpt(nota.body)}</p>
+        <p class="garden-excerpt">{nota.data.descripcion || getExcerpt(nota.body)}</p>
         <span class="garden-date">{getFechaCreacion(nota.filePath)}</span>
       </a>
     ))}

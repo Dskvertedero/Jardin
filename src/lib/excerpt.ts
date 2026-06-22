@@ -3,10 +3,12 @@ function stripMarkdown(body: string) {
 
   return body
     .replace(/^---[\s\S]*?---/, "")
+    .replace(/<[^>]*>/g, " ")
     .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, alias) => alias || target)
     .replace(/[#*_>`~]/g, "")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\n+/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
