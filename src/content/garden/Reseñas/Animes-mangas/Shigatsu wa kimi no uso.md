@@ -1,5 +1,6 @@
 ---
 draft: false
+categoria: anime
 ---
 
 <div class="reproductor-audio"> <audio src="/media/shigatsu.mp3" controls></audio> <button class="rp-play">▶</button> <div class="rp-barra"><div class="rp-progreso"></div></div> <span class="rp-tiempo">0:00 / 0:00</span> </div>
