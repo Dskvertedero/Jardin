@@ -1,24 +1,39 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
-
 <BaseLayout title="Futuro">
   <section class="page">
     <h1>Futuro</h1>
-
     <p>
       Este espacio sera para las futuras notas y cosas que quiera hacer por acá
     </p>
-
     <h2>Ideas pendientes</h2>
-
     <ul>
       <li>Mejorar el sitio</li>
+      <li>No tengo boca y debo gritaR</li>
       <li>Niños prodigio</li>
       <li>Dislexia poliglota</li>
       <li>Reseñas mcuhas reseñas</li>
       <li>Publicación automática desde la bóveda</li>
     </ul>
+  </section>
 
-   /section>
+  <section class="comentarios">
+    <h3>Comentarios</h3>
+    <div
+      id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="183e20bf-2c00-483a-915d-b403e6c34176"
+      data-page-id="futuro"
+      data-page-url="https://jardin-zeta.vercel.app/futuro"
+      data-page-title="Futuro"
+    ></div>
+    <script>
+      document.getElementById("cusdis_thread")?.setAttribute(
+        "data-theme",
+        document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light"
+      );
+    </script>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+  </section>
 </BaseLayout>
