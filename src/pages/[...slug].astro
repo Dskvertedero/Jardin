@@ -69,22 +69,14 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 
 <script>
   const contenido = document.querySelector(".prose");
-  const tokensBasura = ["Properties", "draft", "categoria", "title", "true", "false", "▼", "›"];
-
-  function esSoloBasura(texto) {
-    let resto = texto.replace(/\s+/g, "");
-    for (const token of tokensBasura) {
-      resto = resto.split(token).join("");
-    }
-    return resto.length === 0;
-  }
 
   if (contenido) {
     let nodo = contenido.firstElementChild;
     while (nodo) {
       const texto = nodo.textContent || "";
       const vacio = texto.trim().length === 0;
-      if (!vacio && !esSoloBasura(texto)) break;
+      const esPropiedades = texto.includes("Properties");
+      if (!vacio && !esPropiedades) break;
       const siguiente = nodo.nextElementSibling;
       nodo.remove();
       nodo = siguiente;
