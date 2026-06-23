@@ -63,13 +63,18 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
       data-page-url={urlNota}
       data-page-title={tituloNota}
     ></div>
+    <script>
+      document.getElementById("cusdis_thread")?.setAttribute(
+        "data-theme",
+        document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light"
+      );
+    </script>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
   </section>
 </BaseLayout>
 
 <script>
   const contenido = document.querySelector(".prose");
-
   if (contenido) {
     let nodo = contenido.firstElementChild;
     while (nodo) {
