@@ -27,6 +27,9 @@ const fecha = stats.birthtime.toLocaleDateString("es-MX", {
   day: "numeric",
 });
 
+const palabras = (nota.body || "").trim().split(/\s+/).length;
+const minutosLectura = Math.max(1, Math.ceil(palabras / 200));
+
 const backlinksMap = getBacklinksMap(todasLasNotas);
 const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
@@ -37,8 +40,8 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 <BaseLayout title={tituloNota}>
   <a href="/garden">&larr; Volver al jardín</a>
   <h1>{tituloNota}</h1>
-  <p class="nota-fecha">{fecha}</p>
-  <article class="prose">
+  <p class="nota-fecha">{fecha} · {minutosLectura} min de lectura</p>
+  <article class="prose" id="articulo-nota">
     <Content />
   </article>
 
@@ -55,6 +58,7 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 
   <section class="comentarios">
     <h3>Comentarios</h3>
+    <p class="nota-moderacion">Tu comentario quedará pendiente de revisión antes de aparecer públicamente.</p>
     <div
       id="cusdis_thread"
       data-host="https://cusdis.com"
@@ -71,6 +75,8 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
     </script>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
   </section>
+
+  <div id="barra-progreso-lectura"><div id="barra-progreso-relleno"></div></div>
 </BaseLayout>
 
 <script>
@@ -87,4 +93,19 @@ const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
       nodo = siguiente;
     }
   }
+
+  const articulo = document.getElementById("articulo-nota");
+  const relleno = document.getElementById("barra-progreso-relleno");
+
+  function actualizarProgreso() {
+    if (!articulo || !relleno) return;
+    const inicio = articulo.offsetTop;
+    const alto = articulo.offsetHeight;
+    const avance = window.scrollY - inicio + window.innerHeight * 0.5;
+    const pct = Math.min(100, Math.max(0, (avance / alto) * 100));
+    relleno.style.width = pct + "%";
+  }
+
+  window.addEventListener("scroll", actualizarProgreso);
+  actualizarProgreso();
 </script>

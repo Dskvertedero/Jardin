@@ -16,6 +16,7 @@ const { title = "Mi Jardín Digital" } = Astro.props;
     />
   </head>
   <body>
+    <a href="#contenido-principal" class="saltar-contenido">Saltar al contenido</a>
     <header class="site-header">
       <a href="/" class="logo">Mi Jardín </a>
       <nav class="main-nav">
@@ -28,7 +29,7 @@ const { title = "Mi Jardín Digital" } = Astro.props;
         <span class="icon-dark">👻</span>
       </button>
     </header>
-    <main>
+    <main id="contenido-principal">
       <slot />
     </main>
     <footer class="site-footer">
