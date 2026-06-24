@@ -3,7 +3,7 @@ import "../styles/global.css";
 import { getCollection } from "astro:content";
 import { notasPublicadas } from "../lib/draft";
 
-const { title = "Mi Jardín Digital", description = "Un jardín digital personal, notas en crecimiento." } = Astro.props;
+const { title = "Vertedero digital", description = "Parece que por fin esta funcionando esto, pues entrale." } = Astro.props;
 
 const todasLasNotas = await getCollection("garden");
 const notas = notasPublicadas(todasLasNotas);
