@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 categoria: Anime
 descripcion: Un pianista y una violinista quieren lograr transmitir lo que sienten
 ---
