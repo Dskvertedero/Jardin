@@ -36,8 +36,16 @@ const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
 
 const tituloNota = nota.data.title || formatearTitulo(path.basename(nota.id));
 const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
+
+const cuerpo = nota.body || "";
+const matchMd = cuerpo.match(/!\[[^\]]*\]\(([^)\s]+)\)/);
+const matchHtml = cuerpo.match(/<img[^>]*src=["']([^"']+)["']/);
+const imagenRelativa = matchMd?.[1] || matchHtml?.[1] || null;
+const imagenOg = imagenRelativa
+  ? `https://jardin-zeta.vercel.app${imagenRelativa.startsWith("/") ? "" : "/"}${imagenRelativa}`
+  : undefined;
 ---
-<BaseLayout title={tituloNota}>
+<BaseLayout title={tituloNota} description={nota.data.descripcion} image={imagenOg}>
   <a href="/garden">&larr; Volver al jardín</a>
   <h1>{tituloNota}</h1>
   <p class="nota-fecha">{fecha} · {minutosLectura} min de lectura</p>

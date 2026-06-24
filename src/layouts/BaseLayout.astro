@@ -1,13 +1,22 @@
 ---
 import "../styles/global.css";
 
-const { title = "Mi Jardín Digital" } = Astro.props;
+const { title = "Mi Jardín Digital", description = "Un jardín digital personal, notas en crecimiento.", image } = Astro.props;
+
+const urlActual = Astro.url.href;
 ---
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={urlActual} />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,10 +44,7 @@ const { title = "Mi Jardín Digital" } = Astro.props;
     <footer class="site-footer">
       <p>&copy; 2026 Triple s</p>
     </footer>
-    
- 
 
-    
     <script is:inline>
       const toggle = document.getElementById("theme-toggle");
       const root = document.documentElement;
@@ -57,20 +63,21 @@ const { title = "Mi Jardín Digital" } = Astro.props;
         }
       });
 
-const botonSorpresa = document.getElementById("boton-sorpresa");
+      const botonSorpresa = document.getElementById("boton-sorpresa");
 
-botonSorpresa?.addEventListener("click", async () => {
-  try {
-    const res = await fetch("/api/random-note");
-    const data = await res.json();
+      botonSorpresa?.addEventListener("click", async () => {
+        try {
+          const res = await fetch("/api/random-note");
+          const data = await res.json();
 
-    if (!data.id) return;
+          if (!data.id) return;
 
-    window.location.href = "/" + data.id;
-  } catch (error) {
-    console.error("Error al obtener nota aleatoria:", error);
-  }
-});
+          window.location.href = "/" + data.id;
+        } catch (error) {
+          console.error("Error al obtener nota aleatoria:", error);
+        }
+      });
+
       function formatearTiempo(segundos) {
         if (!isFinite(segundos)) return "0:00";
         const m = Math.floor(segundos / 60);
