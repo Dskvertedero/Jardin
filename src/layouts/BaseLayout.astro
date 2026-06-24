@@ -36,7 +36,7 @@ const { title = "Mi Jardín Digital" } = Astro.props;
       <p>&copy; 2026 Triple s</p>
     </footer>
     
-    <script type="application/json" id="ids-notas" set:html={JSON.stringify(idsNotas)}></script>
+ 
 
     
     <script is:inline>
@@ -58,15 +58,19 @@ const { title = "Mi Jardín Digital" } = Astro.props;
       });
 
 const botonSorpresa = document.getElementById("boton-sorpresa");
-      botonSorpresa?.addEventListener("click", () => {
-        const dataEl = document.getElementById("ids-notas");
-        if (!dataEl) return;
-        const ids = JSON.parse(dataEl.textContent || "[]");
-        if (ids.length === 0) return;
-        const idAleatorio = ids[Math.floor(Math.random() * ids.length)];
-        window.location.href = "/" + idAleatorio;
-      });
 
+botonSorpresa?.addEventListener("click", async () => {
+  try {
+    const res = await fetch("/api/random-note");
+    const data = await res.json();
+
+    if (!data.id) return;
+
+    window.location.href = "/" + data.id;
+  } catch (error) {
+    console.error("Error al obtener nota aleatoria:", error);
+  }
+});
       function formatearTiempo(segundos) {
         if (!isFinite(segundos)) return "0:00";
         const m = Math.floor(segundos / 60);
