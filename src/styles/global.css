@@ -537,3 +537,38 @@ main {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.garden-card,
+.prose,
+.intro,
+.recent-notes {
+  animation: fadeInUp 0.35s ease both;
+}
+
+.garden-grid .garden-card:nth-child(2) { animation-delay: 0.04s; }
+.garden-grid .garden-card:nth-child(3) { animation-delay: 0.08s; }
+.garden-grid .garden-card:nth-child(4) { animation-delay: 0.12s; }
+.garden-grid .garden-card:nth-child(5) { animation-delay: 0.16s; }
+.garden-grid .garden-card:nth-child(6) { animation-delay: 0.2s; }
+.garden-grid .garden-card:nth-child(7) { animation-delay: 0.24s; }
+.garden-grid .garden-card:nth-child(8) { animation-delay: 0.28s; }
+
+.boton-sorpresa {
+  background: none;
+  border: 1px solid var(--color-bg-card);
+  color: var(--color-text);
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+.boton-sorpresa:hover {
+  background-color: var(--color-bg-card);
+}

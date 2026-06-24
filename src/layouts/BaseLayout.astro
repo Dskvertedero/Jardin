@@ -1,13 +1,27 @@
 ---
 import "../styles/global.css";
+import { getCollection } from "astro:content";
+import { notasPublicadas } from "../lib/draft";
 
-const { title = "Mi Jardín Digital" } = Astro.props;
+const { title = "Mi Jardín Digital", description = "Un jardín digital personal, notas en crecimiento." } = Astro.props;
+
+const todasLasNotas = await getCollection("garden");
+const notas = notasPublicadas(todasLasNotas);
+const idsNotas = notas.map((n) => n.id);
+
+const urlActual = Astro.url.href;
 ---
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={urlActual} />
+    <meta name="twitter:card" content="summary" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,6 +37,7 @@ const { title = "Mi Jardín Digital" } = Astro.props;
         <a href="/garden">Notas</a>
         <a href="/about">Datos</a>
         <a href="/futuro">Futuro</a>
+        <button id="boton-sorpresa" class="boton-sorpresa" type="button">🎲 Sorpréndeme</button>
       </nav>
       <button id="theme-toggle" aria-label="Cambiar tema" class="theme-toggle-btn">
         <span class="icon-light">☀️</span>
@@ -35,6 +50,9 @@ const { title = "Mi Jardín Digital" } = Astro.props;
     <footer class="site-footer">
       <p>&copy; 2026 Maleficios</p>
     </footer>
+
+    <script type="application/json" id="ids-notas" set:html={JSON.stringify(idsNotas)}></script>
+
     <script is:inline>
       const toggle = document.getElementById("theme-toggle");
       const root = document.documentElement;
@@ -53,22 +71,29 @@ const { title = "Mi Jardín Digital" } = Astro.props;
         }
       });
 
+      const botonSorpresa = document.getElementById("boton-sorpresa");
+      botonSorpresa?.addEventListener("click", () => {
+        const dataEl = document.getElementById("ids-notas");
+        if (!dataEl) return;
+        const ids = JSON.parse(dataEl.textContent || "[]");
+        if (ids.length === 0) return;
+        const idAleatorio = ids[Math.floor(Math.random() * ids.length)];
+        window.location.href = "/" + idAleatorio;
+      });
+
       function formatearTiempo(segundos) {
         if (!isFinite(segundos)) return "0:00";
         const m = Math.floor(segundos / 60);
         const s = Math.floor(segundos % 60).toString().padStart(2, "0");
         return `${m}:${s}`;
       }
-
       document.querySelectorAll(".reproductor-audio, .reproductor-video").forEach((contenedor) => {
         const media = contenedor.querySelector("audio, video");
         const btnPlay = contenedor.querySelector(".rp-play");
         const barra = contenedor.querySelector(".rp-barra");
         const progreso = contenedor.querySelector(".rp-progreso");
         const tiempo = contenedor.querySelector(".rp-tiempo");
-
         if (!media || !btnPlay || !barra || !progreso) return;
-
         btnPlay.addEventListener("click", () => {
           if (media.paused) {
             media.play();
@@ -78,7 +103,6 @@ const { title = "Mi Jardín Digital" } = Astro.props;
             btnPlay.textContent = "▶";
           }
         });
-
         media.addEventListener("timeupdate", () => {
           const pct = (media.currentTime / media.duration) * 100 || 0;
           progreso.style.width = pct + "%";
@@ -86,11 +110,9 @@ const { title = "Mi Jardín Digital" } = Astro.props;
             tiempo.textContent = `${formatearTiempo(media.currentTime)} / ${formatearTiempo(media.duration)}`;
           }
         });
-
         media.addEventListener("ended", () => {
           btnPlay.textContent = "▶";
         });
-
         barra.addEventListener("click", (e) => {
           const rect = barra.getBoundingClientRect();
           const pct = (e.clientX - rect.left) / rect.width;
