@@ -67,12 +67,11 @@ const urlActual = Astro.url.href;
 
       botonSorpresa?.addEventListener("click", async () => {
         try {
-          const res = await fetch("/api/random-note");
-          const data = await res.json();
-
-          if (!data.id) return;
-
-          window.location.href = "/" + data.id;
+          const res = await fetch("/notas-ids.json");
+          const ids = await res.json();
+          if (!ids.length) return;
+          const idAleatorio = ids[Math.floor(Math.random() * ids.length)];
+          window.location.href = "/" + idAleatorio;
         } catch (error) {
           console.error("Error al obtener nota aleatoria:", error);
         }
