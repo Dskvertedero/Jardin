@@ -6,6 +6,9 @@ cd /home/calamar/mi-jardin-digital
 echo "Sincronizando bóveda de Obsidian..."
 /bin/bash scripts/sync-vault.sh
 
+echo "Convirtiendo sintaxis de imágenes..."
+/bin/bash scripts/convertir-imagenes.sh
+
 echo "Revisando cambios..."
 /usr/bin/git add .
 
