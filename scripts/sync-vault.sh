@@ -7,6 +7,7 @@ MEDIA="/home/calamar/mi-jardin-digital/public/media"
 echo "Sincronizando notas..."
 /usr/bin/rsync -av --delete \
   --exclude='.obsidian' \
+  --exclude='multi' \
   --exclude='*.jpg' --exclude='*.jpeg' --exclude='*.png' \
   --exclude='*.gif' --exclude='*.webp' --exclude='*.svg' \
   --exclude='*.mp3' --exclude='*.mp4' --exclude='*.wav' --exclude='*.ogg' \
