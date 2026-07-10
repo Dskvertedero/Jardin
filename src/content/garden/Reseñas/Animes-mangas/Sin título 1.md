@@ -1,0 +1,1 @@
+![pasted_image_20260710151037.png](/media/reseñas/animes-mangas/sin_título_1/pasted_image_20260710151037.png)
