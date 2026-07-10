@@ -6,21 +6,24 @@ VAULT="/home/calamar/Documentos/Jardin/jardin"
 
 echo "Procesando imágenes por nota..."
 
-declare -A imagen_asignada
-
 find "$CONTENT" -name "*.md" | while IFS= read -r archivo; do
-  nombre_nota=$(basename "$archivo" .md | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
-  carpeta_media="$MEDIA/$nombre_nota"
 
 python3 << PYEOF
 import re, os, shutil
 
 archivo = '$archivo'
+content_base = '$CONTENT'
 vault = '$VAULT'
-media = '$MEDIA'
-nombre_nota = '$nombre_nota'
-carpeta_destino = '$carpeta_media'
+media_base = '$MEDIA'
 extensiones = r'\.(jpg|jpeg|png|gif|webp|svg|mp3|mp4|wav|ogg)'
+
+ruta_relativa = os.path.relpath(archivo, content_base)
+partes = os.path.splitext(ruta_relativa)[0]
+carpeta_nota = partes.replace(' ', '_').lower()
+carpeta_destino = os.path.join(media_base, carpeta_nota)
+
+asignaciones_dir = os.path.join(media_base, '_asignaciones')
+os.makedirs(asignaciones_dir, exist_ok=True)
 
 with open(archivo, 'r') as f:
     contenido = f.read()
@@ -31,72 +34,69 @@ patron = re.compile(
 )
 
 def buscar_imagen(nombre):
-    nombre_norm = nombre.replace(' ', '_')
+    nombre_norm = nombre.replace(' ', '_').lower()
     for root, dirs, files in os.walk(vault):
         for f in files:
-            if f.replace(' ', '_') == nombre_norm:
+            if f.replace(' ', '_').lower() == nombre_norm:
                 return os.path.join(root, f)
     return None
 
 def procesar(m):
     nombre_original = m.group(1)
     nombre_limpio = nombre_original.replace(' ', '_').lower()
+    ruta_web = carpeta_nota + '/' + nombre_limpio
+
+    asignacion = os.path.join(asignaciones_dir, nombre_limpio)
+
+    if os.path.exists(asignacion):
+        with open(asignacion, 'r') as f:
+            ruta_existente = f.read().strip()
+        return '![' + nombre_limpio + '](/media/' + ruta_existente + '/' + nombre_limpio + ')'
 
     fuente = buscar_imagen(nombre_original)
     if not fuente:
         return m.group(0)
 
-    archivo_asignado = os.path.join(media, '_asignaciones', nombre_limpio)
-    os.makedirs(os.path.join(media, '_asignaciones'), exist_ok=True)
-
-    if os.path.exists(archivo_asignado):
-        with open(archivo_asignado, 'r') as f:
-            carpeta_existente = f.read().strip()
-        return '![' + nombre_limpio + '](/media/' + carpeta_existente + '/' + nombre_limpio + ')'
-
     os.makedirs(carpeta_destino, exist_ok=True)
     shutil.copy2(fuente, os.path.join(carpeta_destino, nombre_limpio))
 
-    with open(archivo_asignado, 'w') as f:
-        f.write(nombre_nota)
+    with open(asignacion, 'w') as f:
+        f.write(carpeta_nota)
 
-    return '![' + nombre_limpio + '](/media/' + nombre_nota + '/' + nombre_limpio + ')'
-
-contenido = patron.sub(procesar, contenido)
+    return '![' + nombre_limpio + '](/media/' + carpeta_nota + '/' + nombre_limpio + ')'
 
 patron_texto = re.compile(
-    r'^([A-Za-z0-9_\- ]+' + extensiones + r')$',
+    r'^([A-Za-z0-9_\-]+' + extensiones + r')$',
     re.IGNORECASE | re.MULTILINE
 )
 
 def procesar_texto(m):
-    nombre_original = m.group(0)
-    nombre_limpio = nombre_original.replace(' ', '_').lower()
+    nombre_limpio = m.group(0).lower()
+    asignacion = os.path.join(asignaciones_dir, nombre_limpio)
 
-    archivo_asignado = os.path.join(media, '_asignaciones', nombre_limpio)
+    if os.path.exists(asignacion):
+        with open(asignacion, 'r') as f:
+            ruta_existente = f.read().strip()
+        return '![' + nombre_limpio + '](/media/' + ruta_existente + '/' + nombre_limpio + ')'
 
-    if os.path.exists(archivo_asignado):
-        with open(archivo_asignado, 'r') as f:
-            carpeta_existente = f.read().strip()
-        return '![' + nombre_limpio + '](/media/' + carpeta_existente + '/' + nombre_limpio + ')'
-
-    fuente = buscar_imagen(nombre_original)
+    fuente = buscar_imagen(nombre_limpio)
     if fuente:
         os.makedirs(carpeta_destino, exist_ok=True)
         shutil.copy2(fuente, os.path.join(carpeta_destino, nombre_limpio))
-        with open(archivo_asignado, 'w') as f:
-            f.write(nombre_nota)
-        return '![' + nombre_limpio + '](/media/' + nombre_nota + '/' + nombre_limpio + ')'
+        with open(asignacion, 'w') as f:
+            f.write(carpeta_nota)
+        return '![' + nombre_limpio + '](/media/' + carpeta_nota + '/' + nombre_limpio + ')'
 
-    return '![' + nombre_limpio + '](/media/' + nombre_limpio + ')'
+    return m.group(0)
 
+contenido = patron.sub(procesar, contenido)
 contenido = patron_texto.sub(procesar_texto, contenido)
 
 with open(archivo, 'w') as f:
     f.write(contenido)
 
-print(f'Procesada: {archivo}')
+print('Procesada: ' + archivo)
 PYEOF
 done
 
-echo "Imágenes convertidas y organizadas por nota."
+echo "Imágenes convertidas y organizadas por categoría/nota."
