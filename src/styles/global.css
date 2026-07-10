@@ -572,3 +572,48 @@ main {
 .boton-sorpresa:hover {
   background-color: var(--color-bg-card);
 }
+
+/* ==============================
+   MathJax - Estilo de ecuaciones
+   ============================== */
+
+/* Contenedor general de ecuaciones */
+.prose mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 0.2rem;
+}
+
+/* Ecuaciones en bloque */
+.prose mjx-container[display="true"] {
+  display: block;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  background-color: var(--color-bg-card);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+/* Ecuaciones dentro del texto */
+.prose mjx-container:not([display="true"]) {
+  margin: 0 0.15rem;
+}
+
+/* Evitar que ecuaciones largas rompan móviles */
+.prose mjx-container[display="true"] mjx-math {
+  max-width: 100%;
+}
+
+/* Modo oscuro */
+[data-theme="dark"] .prose mjx-container[display="true"] {
+  background-color: rgba(168, 192, 204, 0.15);
+  border-left-color: var(--color-accent-soft);
+}
+
+/* Mejor aspecto de lectura científica */
+.prose mjx-container {
+  color: var(--color-text);
+}
