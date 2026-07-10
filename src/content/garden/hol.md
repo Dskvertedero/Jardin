@@ -68,3 +68,382 @@ A=
 3&4
 \end{bmatrix}
 $$
+
+
+
+---
+title: Pruebas MathJax
+description: Página para verificar el funcionamiento de MathJax.
+---
+
+# Pruebas de MathJax
+
+Esta página sirve para comprobar qué comandos y entornos están disponibles.
+
+---
+
+# Matemática inline
+
+La famosa identidad de Euler es $e^{i\pi}+1=0$.
+
+La derivada es
+
+$f'(x)=2x$
+
+y el límite
+
+$\lim_{x\to0}\frac{\sin x}{x}=1$.
+
+---
+
+# Fracciones
+
+$$
+\frac{a+b}{c+d}
+$$
+
+$$
+\dfrac{a+b}{c+d}
+$$
+
+---
+
+# Raíces
+
+$$
+\sqrt{x}
+$$
+
+$$
+\sqrt[n]{x}
+$$
+
+---
+
+# Sumatorias
+
+$$
+\sum_{i=1}^{n}i
+$$
+
+$$
+\prod_{i=1}^{n}i
+$$
+
+---
+
+# Integrales
+
+$$
+\int_a^b f(x)\,dx
+$$
+
+$$
+\oint_C f(z)\,dz
+$$
+
+---
+
+# Límites
+
+$$
+\lim_{x\to0}\frac{\sin x}{x}
+$$
+
+---
+
+# Matrices
+
+$$
+\begin{matrix}
+1&2\\
+3&4
+\end{matrix}
+$$
+
+---
+
+$$
+\begin{pmatrix}
+1&2\\
+3&4
+\end{pmatrix}
+$$
+
+---
+
+$$
+\begin{bmatrix}
+1&2\\
+3&4
+\end{bmatrix}
+$$
+
+---
+
+$$
+\begin{vmatrix}
+1&2\\
+3&4
+\end{vmatrix}
+$$
+
+---
+
+# Sistema de ecuaciones
+
+$$
+\begin{cases}
+x+y=1\\
+x-y=3
+\end{cases}
+$$
+
+---
+
+# Align
+
+$$
+\begin{align}
+a+b &= c\\
+d+e &= f
+\end{align}
+$$
+
+---
+
+# Gather
+
+$$
+\begin{gather}
+a=b\\
+c=d
+\end{gather}
+$$
+
+---
+
+# Split
+
+$$
+\begin{split}
+x &= a+b\\
+  &= c+d
+\end{split}
+$$
+
+---
+
+# Caja AMS
+
+$$
+\boxed{E=mc^2}
+$$
+
+---
+
+# Cancel
+
+$$
+\cancel{x}
+$$
+
+$$
+\xcancel{x}
+$$
+
+$$
+\bcancel{x}
+$$
+
+---
+
+# Color
+
+$$
+{\color{red}x+y}
+$$
+
+$$
+{\color{blue}E=mc^2}
+$$
+
+---
+
+# BBox
+
+$$
+\bbox[5px,border:2px solid blue]{a+b}
+$$
+
+---
+
+# Bra Ket
+
+$$
+\bra{\psi}
+$$
+
+$$
+\ket{\psi}
+$$
+
+$$
+\braket{\phi|\psi}
+$$
+
+---
+
+# Letras negras
+
+$$
+\mathbb{R}
+$$
+
+$$
+\mathbb{C}
+$$
+
+$$
+\mathbb{N}
+$$
+
+$$
+\mathbb{Z}
+$$
+
+$$
+\mathbb{Q}
+$$
+
+---
+
+# Macros
+
+$$
+\R
+$$
+
+$$
+\C
+$$
+
+$$
+\N
+$$
+
+$$
+\Z
+$$
+
+$$
+\Q
+$$
+
+---
+
+# Operadores
+
+$$
+\grad f
+$$
+
+$$
+\diver F
+$$
+
+$$
+\curl A
+$$
+
+---
+
+# Flechas
+
+$$
+A\longrightarrow B
+$$
+
+$$
+A\Longrightarrow B
+$$
+
+$$
+A\leftrightarrow B
+$$
+
+---
+
+# Llaves
+
+$$
+\underbrace{1+1+\cdots+1}_{n}
+$$
+
+$$
+\overbrace{a+b+c}^{S}
+$$
+
+---
+
+# Texto
+
+$$
+\text{Hola mundo}
+$$
+
+---
+
+# Espaciado
+
+$$
+A\,B\;C\quad D\qquad E
+$$
+
+---
+
+# Símbolos
+
+$$
+\forall x\in\R
+$$
+
+$$
+\exists x
+$$
+
+$$
+\nabla
+$$
+
+$$
+\infty
+$$
+
+$$
+\partial
+$$
+
+---
+
+# Unicode
+
+$$
+α+β+γ
+$$
+
+---
+
+# Grande
+
+$$
+\left(
+\frac{
+\sum_{i=1}^{n}x_i
+}{
+\sqrt{
+\int_0^1f(x)\,dx
+}
+}
+\right)
+$$

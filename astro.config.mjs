@@ -14,7 +14,39 @@ export default defineConfig({
     ],
 
 rehypePlugins: [
-      rehypeMathjax,
-    ],
+  [rehypeMathjax, {
+    tex: {
+      packages: {
+        "[+]": [
+          "ams",
+          "newcommand",
+          "configmacros",
+          "color",
+          "bbox",
+          "cancel",
+          "braket",
+          "enclose",
+          "textmacros",
+          "unicode"
+        ]
+      },
+
+      macros: {
+        "\\R": "\\mathbb{R}",
+        "\\C": "\\mathbb{C}",
+        "\\N": "\\mathbb{N}",
+        "\\Z": "\\mathbb{Z}",
+        "\\Q": "\\mathbb{Q}",
+
+        "\\eps": "\\varepsilon",
+        "\\vphi": "\\varphi",
+
+        "\\grad": "\\nabla",
+        "\\diver": "\\nabla\\cdot",
+        "\\curl": "\\nabla\\times"
+      }
+    }
+  }],
+],
   },
 });
