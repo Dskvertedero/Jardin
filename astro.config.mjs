@@ -31,20 +31,20 @@ rehypePlugins: [
         ]
       },
 
-      macros: {
-        "\\R": "\\mathbb{R}",
-        "\\C": "\\mathbb{C}",
-        "\\N": "\\mathbb{N}",
-        "\\Z": "\\mathbb{Z}",
-        "\\Q": "\\mathbb{Q}",
+     macros: {
+  R: "\\mathbb{R}",
+  C: "\\mathbb{C}",
+  N: "\\mathbb{N}",
+  Z: "\\mathbb{Z}",
+  Q: "\\mathbb{Q}",
 
-        "\\eps": "\\varepsilon",
-        "\\vphi": "\\varphi",
+  eps: "\\varepsilon",
+  vphi: "\\varphi",
 
-        "\\grad": "\\nabla",
-        "\\diver": "\\nabla\\cdot",
-        "\\curl": "\\nabla\\times"
-      }
+  grad: "\\nabla",
+  diver: "\\nabla\\cdot",
+  curl: "\\nabla\\times"
+}
     }
   }],
 ],
