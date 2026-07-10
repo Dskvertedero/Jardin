@@ -4,7 +4,7 @@ categoria: Libro
 
 Hola camaradas, un gusto verlos aquí. Camarada lector, déjame contarte sobre este libro.
 
-
+![pasted_image_20260709231232.png](/media/rebelion_en_la_granja/pasted_image_20260709231232.png)
 El libro fue de apertura para un club de lecturas que recientemente me integre. 
 
 Rebelion em la granja es un libro que a menudo es mencionado como un cuento, una fabula que  hace alegoría a los sucesos de la revolución rusa, algo que llama la atencion es que el libro fue escrito cuando aun existia la URSS, por ello sufrio de algunas censuras claras.
