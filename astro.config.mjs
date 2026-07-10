@@ -4,13 +4,16 @@ import mdx from '@astrojs/mdx';
 import remarkObsidianMd from 'remark-obsidian-md';
 import remarkMath from 'remark-math';
 import rehypeMathjax from 'rehype-mathjax';
+import remarkMathPreamble from './src/plugins/remark-math-preamble.mjs';
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [mdx()],
   markdown: {
     remarkPlugins: [
-      [remarkObsidianMd, { root: './src/content/garden' }], remarkMath,
+      [remarkObsidianMd, { root: './src/content/garden' }], 
+      remarkMathPreamble,
+      remarkMath,      
     ],
 
 rehypePlugins: [

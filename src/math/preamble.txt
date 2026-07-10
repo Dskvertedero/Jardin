@@ -1,0 +1,12 @@
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\newcommand{\grad}{\nabla}
+\newcommand{\diver}{\nabla\cdot}
+\newcommand{\curl}{\nabla\times}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vphi}{\varphi}

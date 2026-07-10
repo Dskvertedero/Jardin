@@ -1,17 +1,7 @@
 ---
 draft: false
 ---
-$$
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\Q}{\mathbb{Q}}
 
-\newcommand{\grad}{\nabla}
-\newcommand{\diver}{\nabla\!\cdot\!}
-\newcommand{\curl}{\nabla\!\times\!}
-$$
 sI QUIEOR VER ALGO PUES YA VEREjj
 
 https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Foem.com.mx%2Fdiariodequeretaro%2Flocal%2Fagua-de-tlacote-tlacote-del-milagro-de-su-agua-al-olvido-agua-milagrosa-17921162&ved=0CBYQjRxqFwoTCPiF7KPUxJUDFQAAAAAdAAAAABA3&opi=89978449
