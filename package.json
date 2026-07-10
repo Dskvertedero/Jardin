@@ -16,6 +16,8 @@
     "astro": "^6.4.7",
     "force-graph": "^1.51.4",
     "github-slugger": "^2.0.0",
+    "rehype-mathjax": "^7.1.0",
+    "remark-math": "^6.0.0",
     "remark-obsidian-md": "^1.1.0"
   }
 }
