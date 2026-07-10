@@ -2,50 +2,101 @@
 
 CONTENT="/home/calamar/mi-jardin-digital/src/content/garden"
 MEDIA="/home/calamar/mi-jardin-digital/public/media"
+VAULT="/home/calamar/Documentos/Jardin/jardin"
 
-echo "Renombrando archivos con espacios en media..."
-find "$MEDIA" -name "* *" | while IFS= read -r f; do
-  nuevo="${f// /_}"
-  [ "$f" != "$nuevo" ] && mv "$f" "$nuevo" 2>/dev/null || true
-done
+echo "Procesando imágenes por nota..."
 
-echo "Convirtiendo sintaxis de imágenes en notas..."
+declare -A imagen_asignada
+
 find "$CONTENT" -name "*.md" | while IFS= read -r archivo; do
-python3 << PYEOF
-import re
+  nombre_nota=$(basename "$archivo" .md | tr ' ' '_' | tr '[:upper:]' '[:lower:]')
+  carpeta_media="$MEDIA/$nombre_nota"
 
-with open('$archivo', 'r') as f:
+python3 << PYEOF
+import re, os, shutil
+
+archivo = '$archivo'
+vault = '$VAULT'
+media = '$MEDIA'
+nombre_nota = '$nombre_nota'
+carpeta_destino = '$carpeta_media'
+extensiones = r'\.(jpg|jpeg|png|gif|webp|svg|mp3|mp4|wav|ogg)'
+
+with open(archivo, 'r') as f:
     contenido = f.read()
 
-extensiones = r'\.(jpg|jpeg|png|gif|webp|svg)'
-
-# Caso 1: ![[nombre.png|tamaño]] o ![[nombre.png]]
-def conv_wikilink(m):
-    nombre = m.group(1).replace(' ', '_')
-    return '![' + nombre + '](/media/' + nombre + ')'
-
-contenido = re.sub(
+patron = re.compile(
     r'!\[\[([^\]|]+' + extensiones + r')(?:\|\d+)?\]\]',
-    conv_wikilink,
-    contenido,
-    flags=re.IGNORECASE
+    re.IGNORECASE
 )
 
-# Caso 2: texto plano tipo "Pasted_image_20260708214234.png" en su propia línea
-def conv_texto_plano(m):
-    nombre = m.group(0).replace(' ', '_')
-    return '![' + nombre + '](/media/' + nombre + ')'
+def buscar_imagen(nombre):
+    nombre_norm = nombre.replace(' ', '_')
+    for root, dirs, files in os.walk(vault):
+        for f in files:
+            if f.replace(' ', '_') == nombre_norm:
+                return os.path.join(root, f)
+    return None
 
-contenido = re.sub(
-    r'^[A-Za-z0-9_\- ]+' + extensiones + r'$',
-    conv_texto_plano,
-    contenido,
-    flags=re.IGNORECASE | re.MULTILINE
+def procesar(m):
+    nombre_original = m.group(1)
+    nombre_limpio = nombre_original.replace(' ', '_').lower()
+
+    fuente = buscar_imagen(nombre_original)
+    if not fuente:
+        return m.group(0)
+
+    archivo_asignado = os.path.join(media, '_asignaciones', nombre_limpio)
+    os.makedirs(os.path.join(media, '_asignaciones'), exist_ok=True)
+
+    if os.path.exists(archivo_asignado):
+        with open(archivo_asignado, 'r') as f:
+            carpeta_existente = f.read().strip()
+        return '![' + nombre_limpio + '](/media/' + carpeta_existente + '/' + nombre_limpio + ')'
+
+    os.makedirs(carpeta_destino, exist_ok=True)
+    shutil.copy2(fuente, os.path.join(carpeta_destino, nombre_limpio))
+
+    with open(archivo_asignado, 'w') as f:
+        f.write(nombre_nota)
+
+    return '![' + nombre_limpio + '](/media/' + nombre_nota + '/' + nombre_limpio + ')'
+
+contenido = patron.sub(procesar, contenido)
+
+patron_texto = re.compile(
+    r'^([A-Za-z0-9_\- ]+' + extensiones + r')$',
+    re.IGNORECASE | re.MULTILINE
 )
 
-with open('$archivo', 'w') as f:
+def procesar_texto(m):
+    nombre_original = m.group(0)
+    nombre_limpio = nombre_original.replace(' ', '_').lower()
+
+    archivo_asignado = os.path.join(media, '_asignaciones', nombre_limpio)
+
+    if os.path.exists(archivo_asignado):
+        with open(archivo_asignado, 'r') as f:
+            carpeta_existente = f.read().strip()
+        return '![' + nombre_limpio + '](/media/' + carpeta_existente + '/' + nombre_limpio + ')'
+
+    fuente = buscar_imagen(nombre_original)
+    if fuente:
+        os.makedirs(carpeta_destino, exist_ok=True)
+        shutil.copy2(fuente, os.path.join(carpeta_destino, nombre_limpio))
+        with open(archivo_asignado, 'w') as f:
+            f.write(nombre_nota)
+        return '![' + nombre_limpio + '](/media/' + nombre_nota + '/' + nombre_limpio + ')'
+
+    return '![' + nombre_limpio + '](/media/' + nombre_limpio + ')'
+
+contenido = patron_texto.sub(procesar_texto, contenido)
+
+with open(archivo, 'w') as f:
     f.write(contenido)
+
+print(f'Procesada: {archivo}')
 PYEOF
 done
 
-echo "Imágenes convertidas."
+echo "Imágenes convertidas y organizadas por nota."
