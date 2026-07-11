@@ -92,10 +92,16 @@ const imagenOg = imagenRelativa
   if (contenido) {
     let nodo = contenido.firstElementChild;
     while (nodo) {
-      const texto = nodo.textContent || "";
-      const vacio = texto.trim().length === 0;
+      const texto = (nodo.textContent || "").trim();
+      const vacio = texto.length === 0;
       const esPropiedades = texto.includes("Properties");
-      if (!vacio && !esPropiedades) break;
+      const esLatex = texto.startsWith("\\") ||
+                      texto.includes("\\newcommand") ||
+                      texto.includes("\\def") ||
+                      texto.includes("\\DeclareMathOperator") ||
+                      /^\$\$[\s\S]*?\$\$$/.test(texto) ||
+                      (nodo.tagName === "P" && /^\\\w+/.test(texto));
+      if (!vacio && !esPropiedades && !esLatex) break;
       const siguiente = nodo.nextElementSibling;
       nodo.remove();
       nodo = siguiente;
