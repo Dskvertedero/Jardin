@@ -16,12 +16,12 @@ export default function remarkMathPreamble() {
   return function (tree) {
     tree.children.unshift({
       type: "paragraph",
-      children: [
-        {
-          type: "inlineMath",
-          value: preamble,
-        },
-      ],
+   children: [
+  {
+    type: "math",
+    value: preamble,
+  },
+],
     });
   };
 }
