@@ -618,26 +618,11 @@ main {
   color: var(--color-text);
 }
 
-.nota-portada {
-  width: 100%;
-  max-height: 350px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
 
 .nota-portada {
   width: 100%;
-  max-height: 950px;
+  max-height: 450px;
   object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
-.nota-portada {
-  width: 100%;
-  max-height: 1950px;
-  object-fit: cover;
-  border-radius: 100px;
+  border-radius: 20px;
   margin-bottom: 1.5rem;
 }
