@@ -12,6 +12,14 @@ const preamble = fs
   )
   .join("\n\n");
 
+console.log("ARCHIVOS MATEMATICOS:");
+console.log(
+  fs.readdirSync(macroDir)
+);
+
+console.log("PREAMBULO COMPLETO:");
+console.log(preamble);
+
 export default function remarkMathPreamble() {
   return function (tree) {
     tree.children.unshift({
