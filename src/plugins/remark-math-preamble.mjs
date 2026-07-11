@@ -1,9 +1,16 @@
 import fs from "node:fs";
+import path from "node:path";
 
-const preamble = fs.readFileSync(
-  "./src/math/preamble.tex",
-  "utf8"
-);
+const macroDir = "./src/math/macros";
+
+const preamble = fs
+  .readdirSync(macroDir)
+  .filter(file => file.endsWith(".tex"))
+  .sort()
+  .map(file =>
+    fs.readFileSync(path.join(macroDir, file), "utf8")
+  )
+  .join("\n\n");
 
 export default function remarkMathPreamble() {
   return function (tree) {
