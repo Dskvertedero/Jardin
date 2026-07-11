@@ -1,5 +1,6 @@
 ---
 draft: false
+portada: /media/hol/pasted_image_20260708213240.png
 ---
 
 sI QUIEOR VER ALGO PUES YA VEREjj
@@ -46,7 +47,7 @@ La energía es $E=mc^2$.
 $$
 \sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^2}{6}
 $$
-<img src="/media/hol/pasted_image_20260708220937.png" alt="pasted_image_20260708220937.png" width="430" loading="lazy">
+<img src="/media/hol/pasted_image_20260708220937.png" alt="pasted_image_20260708220937.png" width="162" loading="lazy">
 
 # Prueba MathJax
 

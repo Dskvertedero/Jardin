@@ -11,6 +11,7 @@ const garden = defineCollection({
     categoria: z.string().optional(),
     draft: z.union([z.boolean(), z.string()]).optional(),
     descripcion: z.string().optional(),
+    portada: z.string().optional(),
   }),
 });
 

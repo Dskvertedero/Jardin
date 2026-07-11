@@ -35,6 +35,7 @@ const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
 
 const tituloNota = nota.data.title || formatearTitulo(path.basename(nota.id));
+const portada = nota.data.portada || null;
 const urlNota = `https://jardin-zeta.vercel.app/${nota.id}`;
 
 const cuerpo = nota.body || "";
@@ -47,6 +48,7 @@ const imagenOg = imagenRelativa
 ---
 <BaseLayout title={tituloNota} description={nota.data.descripcion} image={imagenOg}>
   <a href="/garden">&larr; Volver al jardín</a>
+  {portada && <img src={portada} alt={tituloNota} class="nota-portada" />}
   <h1>{tituloNota}</h1>
   <p class="nota-fecha">{fecha} · {minutosLectura} min de lectura</p>
   <article class="prose" id="articulo-nota">
