@@ -1,5 +1,6 @@
 # Prueba MathJax
 
+
 Ecuación simple:
 
 $E=mc^2$
