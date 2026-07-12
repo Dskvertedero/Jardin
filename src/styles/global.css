@@ -626,3 +626,30 @@ main {
   border-radius: 20px;
   margin-bottom: 1.5rem;
 }
+
+.link-preview {
+  position: fixed;
+  z-index: 999;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-bg-card);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  max-width: 280px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  pointer-events: none;
+}
+
+.link-preview strong {
+  display: block;
+  font-family: "Fraunces", serif;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-accent);
+}
+
+.link-preview p {
+  margin: 0;
+  font-size: 0.8rem;
+  opacity: 0.8;
+  line-height: 1.4;
+}

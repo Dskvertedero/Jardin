@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content";
+import { notasPublicadas } from "../lib/draft";
+import { getExcerpt } from "../lib/excerpt";
+import { formatearTitulo } from "../lib/titulo";
+import path from "node:path";
+
+const todasLasNotas = await getCollection("garden");
+const notas = notasPublicadas(todasLasNotas);
+
+const datos = notas.reduce((acc, nota) => {
+  acc[nota.id] = {
+    titulo: nota.data.title || formatearTitulo(path.basename(nota.id)),
+    excerpt: nota.data.descripcion || getExcerpt(nota.body, 150),
+  };
+  return acc;
+}, {});
+---
+
+<div id="link-preview" class="link-preview" style="display:none;">
+  <strong id="lp-titulo"></strong>
+  <p id="lp-excerpt"></p>
+</div>
+
+<script type="application/json" id="link-preview-data" set:html={JSON.stringify(datos)}></script>
+
+<script>
+  const preview = document.getElementById("link-preview");
+  const lpTitulo = document.getElementById("lp-titulo");
+  const lpExcerpt = document.getElementById("lp-excerpt");
+  const dataEl = document.getElementById("link-preview-data");
+
+  if (!dataEl || !preview) return;
+  const datos = JSON.parse(dataEl.textContent || "{}");
+
+  let timeoutMostrar;
+  let timeoutOcultar;
+
+  document.querySelectorAll(".prose a[href^='/']").forEach((enlace) => {
+    const href = enlace.getAttribute("href") || "";
+    const id = href.replace(/^\//, "");
+    const info = datos[id];
+    if (!info) return;
+
+    enlace.addEventListener("mouseenter", (e) => {
+      clearTimeout(timeoutOcultar);
+      timeoutMostrar = setTimeout(() => {
+        lpTitulo.textContent = info.titulo;
+        lpExcerpt.textContent = info.excerpt;
+        preview.style.display = "block";
+        posicionar(e);
+      }, 300);
+    });
+
+    enlace.addEventListener("mousemove", posicionar);
+
+    enlace.addEventListener("mouseleave", () => {
+      clearTimeout(timeoutMostrar);
+      timeoutOcultar = setTimeout(() => {
+        preview.style.display = "none";
+      }, 150);
+    });
+  });
+
+  function posicionar(e) {
+    const x = e.clientX + 16;
+    const y = e.clientY + 16;
+    const maxX = window.innerWidth - preview.offsetWidth - 20;
+    const maxY = window.innerHeight - preview.offsetHeight - 20;
+    preview.style.left = Math.min(x, maxX) + "px";
+    preview.style.top = Math.min(y, maxY) + "px";
+  }
+</script>

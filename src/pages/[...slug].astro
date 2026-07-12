@@ -6,6 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getBacklinksMap } from "../lib/backlinks";
 import { notasPublicadas } from "../lib/draft";
 import { formatearTitulo } from "../lib/titulo";
+import LinkPreview from "../components/LinkPreview.astro";
 
 export async function getStaticPaths() {
   const todasLasNotas = await getCollection("garden");
@@ -87,6 +88,7 @@ const imagenOg = imagenRelativa
   </section>
 
   <div id="barra-progreso-lectura"><div id="barra-progreso-relleno"></div></div>
+  <LinkPreview />
 </BaseLayout>
 
 <script>
