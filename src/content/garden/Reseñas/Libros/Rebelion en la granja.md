@@ -4,7 +4,7 @@ categoria: Libro
 
 Hola camaradas, un gusto verlos aquí. Camarada lector, déjame contarte sobre este libro.
 
-<img src="/media/reseñas/libros/rebelion_en_la_granja/pasted_image_20260709231232.png" alt="pasted_image_20260709231232.png" loading="lazy">
+![[Pasted image 20260709231232.png]]
 
 El libro fue de apertura para un club de lecturas que recientemente me integre. 
 
