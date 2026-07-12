@@ -46,4 +46,4 @@ $$
 $$
 
 
-<img src="/media/matematicas/untitled_1/pasted_image_20260712010728.png" alt="pasted_image_20260712010728.png" loading="lazy">
+<img src="/media/matematicas/untitled_1/pasted_image_20260712010728.png" alt="pasted_image_20260712010728.png" width="121" loading="lazy">
