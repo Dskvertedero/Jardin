@@ -3,7 +3,7 @@ draft: false
 portada: /media/hol/pasted_image_20260708213240.png
 ---
 
-sI QUIEOR VER ALGO PUES YA VEREjj
+sI QUIR VER ALGO PUES YA VEREjj
 
 [[Shigatsu wa kimi no uso]] 
 
