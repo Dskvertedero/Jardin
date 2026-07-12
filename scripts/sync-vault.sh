@@ -4,7 +4,7 @@ VAULT="/home/calamar/Documentos/Jardin/jardin"
 CONTENT="/home/calamar/mi-jardin-digital/src/content/garden"
 
 echo "Sincronizando notas..."
-/usr/bin/rsync -av --delete \
+/usr/bin/rsync -av --delete --checksum \
   --exclude='.obsidian' \
   --exclude='multi' \
   --exclude='_attachments' \

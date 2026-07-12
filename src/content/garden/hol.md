@@ -4,7 +4,7 @@ portada: /media/hol/pasted_image_20260708213240.png
 ---
 
 sI QUIR VER ALGO PUES YA VEREjj
-
+kjjkkjkjk
 [[Shigatsu wa kimi no uso]] 
 
 jj
