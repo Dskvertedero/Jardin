@@ -1,7 +1,7 @@
 ---
 draft: false
 ---
-![[Pasted image 20260710190107.png]]
+<img src="/media/matematicas/untitled_1/pasted_image_20260710190107.png" alt="pasted_image_20260710190107.png" loading="lazy">
 
 
 
