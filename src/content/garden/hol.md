@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 portada: /media/hol/pasted_image_20260708213240.png
 ---
 
