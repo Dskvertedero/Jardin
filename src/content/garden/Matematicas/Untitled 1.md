@@ -44,3 +44,6 @@ $$
 $$
 \int_0^1 f(x)\,dx
 $$
+
+
+<img src="/media/matematicas/untitled_1/pasted_image_20260712010728.png" alt="pasted_image_20260712010728.png" loading="lazy">
