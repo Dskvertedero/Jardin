@@ -1,7 +1,8 @@
 ---
-draft: true
+draft: false
 ---
 [[index]]
+hola verificao que esta cochimaada sirva
 
 [[prueba -1]]
 
