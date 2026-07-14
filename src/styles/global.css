@@ -653,3 +653,66 @@ main {
   opacity: 0.8;
   line-height: 1.4;
 }
+
+.modo-lectura .site-header,
+.modo-lectura .garden-sidebar,
+.modo-lectura .backlinks,
+.modo-lectura .comentarios,
+.modo-lectura .grafo-section,
+.modo-lectura #barra-progreso-lectura {
+  display: none !important;
+}
+
+.modo-lectura main {
+  max-width: 680px;
+}
+
+.modo-lectura .prose {
+  font-size: 1.2rem;
+  line-height: 1.9;
+}
+
+.tipografia-grande .prose {
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+.controles-lectura {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.btn-lectura {
+  background: var(--color-bg-card);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+}
+
+.btn-lectura:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.btn-lectura.activo {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.notas-relacionadas {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-bg-card);
+}
+
+.notas-relacionadas h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}

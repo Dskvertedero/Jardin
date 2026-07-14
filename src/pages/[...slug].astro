@@ -32,6 +32,15 @@ const palabras = (nota.body || "").trim().split(/\s+/).length;
 const minutosLectura = Math.max(1, Math.ceil(palabras / 200));
 
 const backlinksMap = getBacklinksMap(todasLasNotas);
+
+const categoriaActual = nota.id.includes("/") ? nota.id.split("/")[0] : "general";
+const notasRelacionadas = todasLasNotas
+  .filter((n) => {
+    if (n.id === nota.id) return false;
+    const cat = n.id.includes("/") ? n.id.split("/")[0] : "general";
+    return cat === categoriaActual;
+  })
+  .slice(0, 3);
 const backlinkIds = Array.from(backlinksMap.get(nota.id) || []);
 const backlinkNotas = todasLasNotas.filter((n) => backlinkIds.includes(n.id));
 
@@ -49,6 +58,10 @@ const imagenOg = imagenRelativa
 ---
 <BaseLayout title={tituloNota} description={nota.data.descripcion} image={imagenOg}>
   <a href="/garden">&larr; Volver al jardín</a>
+  <div class="controles-lectura">
+    <button class="btn-lectura" id="btn-tipografia">A+ Tipografía</button>
+    <button class="btn-lectura" id="btn-modo-lectura">📖 Modo lectura</button>
+  </div>
   {portada && <img src={portada} alt={tituloNota} class="nota-portada" />}
   <h1>{tituloNota}</h1>
   <p class="nota-fecha">{fecha} · {minutosLectura} min de lectura</p>
@@ -89,6 +102,19 @@ const imagenOg = imagenRelativa
 
   <div id="barra-progreso-lectura"><div id="barra-progreso-relleno"></div></div>
   <LinkPreview />
+
+  {notasRelacionadas.length > 0 && (
+    <section class="notas-relacionadas">
+      <h3>Notas relacionadas</h3>
+      <div class="garden-grid">
+        {notasRelacionadas.map((n) => (
+          <a href={`/${n.id}`} class="garden-card">
+            <h3>{n.data.title || formatearTitulo(path.basename(n.id))}</h3>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <script>
@@ -126,4 +152,29 @@ const imagenOg = imagenRelativa
 
   window.addEventListener("scroll", actualizarProgreso);
   actualizarProgreso();
+
+  const btnTipo = document.getElementById("btn-tipografia");
+  const btnLectura = document.getElementById("btn-modo-lectura");
+  const raiz = document.documentElement;
+
+  btnTipo?.addEventListener("click", () => {
+    const activo = raiz.classList.toggle("tipografia-grande");
+    btnTipo.classList.toggle("activo", activo);
+    localStorage.setItem("tipografia-grande", activo ? "1" : "0");
+  });
+
+  btnLectura?.addEventListener("click", () => {
+    const activo = raiz.classList.toggle("modo-lectura");
+    btnLectura.classList.toggle("activo", activo);
+    localStorage.setItem("modo-lectura", activo ? "1" : "0");
+  });
+
+  if (localStorage.getItem("tipografia-grande") === "1") {
+    raiz.classList.add("tipografia-grande");
+    btnTipo?.classList.add("activo");
+  }
+  if (localStorage.getItem("modo-lectura") === "1") {
+    raiz.classList.add("modo-lectura");
+    btnLectura?.classList.add("activo");
+  }
 </script>
