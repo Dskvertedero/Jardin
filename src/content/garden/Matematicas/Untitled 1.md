@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 ---
 <img src="/media/matematicas/untitled_1/pasted_image_20260710190107.png" alt="pasted_image_20260710190107.png" width="260" loading="lazy">
 
