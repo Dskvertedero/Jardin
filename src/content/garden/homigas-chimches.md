@@ -14,4 +14,4 @@ Ja, es interesante pensar que, a fin de cuentas, la cooperación para mantenerse
 
 Para rellenar un poco más este espacio con conocimiento, igual quiero mencionar la fascinante capacidad de las hormigas para el autosacrificio. Una especie de hormigas, en concreto las _Lasius neglectus_, cuando detectan que una de las larvas está enferma, estas pues vaya, las desechan, por decirlo dulcemente.
 
-Lo cual da risa si lo piensas, porque recuerdo que el artículo donde lo leí trataba de hacerlo parecer como que las hormigas son vomitivas o una cosa así, cuando realmente simplemente quieren preservar la salud y bienestar del hormiguero.
+Lo cual da risa si lo piensas, porque recuerdo que el artículo donde lo leí trataba de hacerlo parecer como que las hormigas son nobles o una cosa así, cuando realmente simplemente quieren preservar la salud y bienestar del hormiguero.
