@@ -1,1 +1,0 @@
-Ahorita ya hare algo, esto es simple 
