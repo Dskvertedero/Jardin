@@ -149,7 +149,7 @@ $$
 y´=x\sin \theta + y\cos \theta  
 $$  
 y claro esto si reescribo x y y en su forma polar es como si quedara  
-_$$  
+$$  
 x´=r \cos\beta \cos\theta - r \sin\beta \sin\theta  
 $$  
 $$  
@@ -164,6 +164,8 @@ $$
 $$  
 y´=\sin(\theta+\beta)  
 $$  
+
+
 duh. Perdi mucho tiempo haciendo esto
 
 2 de septiembre 2026
