@@ -10,7 +10,7 @@ import { formatearTitulo } from "../../lib/titulo";
 
 export async function getStaticPaths() {
   const todasLasNotas = await getCollection("garden");
-  const notas = notasPublicadas(todasLasNotas);
+  const notas = notasPublicadas(todasLasNotas).filter((n) => !n.id.toLowerCase().startsWith("apuntes/"));
   const grupos = agruparPorCarpeta(notas);
 
   return Array.from(grupos.entries()).map(([carpeta, notasDeCarpeta]) => ({

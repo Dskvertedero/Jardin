@@ -8,7 +8,7 @@ const { categoriaActiva } = Astro.props;
 
 const todasLasNotas = await getCollection("garden");
 const notas = notasPublicadas(todasLasNotas);
-const grupos = agruparPorCarpeta(notas);
+const grupos = agruparPorCarpeta(notas.filter((n) => !n.id.toLowerCase().startsWith("apuntes/")));
 ---
 <div id="garden-sidebar" class="garden-sidebar garden-sidebar-colapsado">
   <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Desplegar menú">

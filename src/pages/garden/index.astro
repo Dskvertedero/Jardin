@@ -10,7 +10,7 @@ import { formatearTitulo } from "../../lib/titulo";
 import Grafo from "../../components/Grafo.astro";
 
 const todasLasNotas = await getCollection("garden");
-const notas = notasPublicadas(todasLasNotas);
+const notas = notasPublicadas(todasLasNotas).filter((n) => !n.id.toLowerCase().startsWith("apuntes/"));
 const grupos = agruparPorCategoria(notas);
 
 function getFechaCreacion(filePath: string) {
