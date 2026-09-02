@@ -1,6 +1,6 @@
 ---
 categoria: Compleja
-descripcion:
+descripcion: 2 de septiembre 2026
 ---
 
 Ahora incluiré mis apuntes también en parte, así será más fácil para mí acceder a mis notas de clase desde aquí.
