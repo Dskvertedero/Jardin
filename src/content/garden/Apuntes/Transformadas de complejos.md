@@ -58,7 +58,7 @@ $$
   
   
 $$  
-![[Pasted image 20260902012258.png]]  
+<img src="/media/apuntes/transformadas_de_complejos/pasted_image_20260902020507.png" alt="pasted_image_20260902020507.png" loading="lazy">  
   
 y pues sí da eso.  
   
