@@ -1,5 +1,5 @@
 ---
-descripcion: Uma relaciom de mutualismo
+descripcion: Una relacion de mutualismo
 ---
 Es divertido darse cuenta de esas cosas.
 
