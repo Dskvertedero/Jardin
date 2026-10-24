@@ -13,5 +13,5 @@ La melaza es propiamente un desperdicio de las chinches, el desecho resultante d
 Ja, es interesante pensar que, a fin de cuentas, la cooperación para mantenerse vivo es importante. Tal vez debería socializar más con las personas, en realidad.
 
 Para rellenar un poco más este espacio con conocimiento, igual quiero mencionar la fascinante capacidad de las hormigas para el autosacrificio. Una especie de hormigas, en concreto las _Lasius neglectus_, cuando detectan que una de las larvas está enferma, estas pues vaya, las desechan, por decirlo dulcemente.
-
+<img src="/media/homigas-chinches/pasted_image_20261024132236.png" alt="pasted_image_20261024132236.png" loading="lazy">
 Lo cual da risa si lo piensas, porque recuerdo que el artículo donde lo leí trataba de hacerlo parecer como que las hormigas son nobles o una cosa así, cuando realmente simplemente quieren preservar la salud y bienestar del hormiguero.
