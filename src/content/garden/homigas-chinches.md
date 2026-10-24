@@ -2,7 +2,7 @@
 descripcion: Una relacion de mutualismo
 ---
 Es divertido darse cuenta de esas cosas.
-
+<img src="/media/homigas-chinches/pasted_image_20261024131824.png" alt="pasted_image_20261024131824.png" loading="lazy">
 En la casa de una amistad, me explicaron la relación existente entre estos dos insectos. Viendo de primera mano cómo las hormigas protegían los huevos de las chinches, entendí que, al parecer, de lo que producen las chinches ellas obtienen alimento.
 
 <img src="/media/homigas-chimches/20260625_172720.jpg" alt="20260625_172720.jpg" width="574" loading="lazy">
